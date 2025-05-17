@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TOTP Generator</title>
+    <meta name="description" content="Generate secure Time-Based One-Time Passwords (TOTP) with this free and privacy-friendly tool. Fast, responsive, and no data storage.">
+    <meta name="keywords" content="TOTP, 2FA, two-factor authentication, one-time password, authenticator, OTP generator, security">
+    <meta name="author" content="akbarhabiby">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://totp.akbar.hk/">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/otpauth/9.1.3/otpauth.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>TOTP Generator</h1>
+        <div class="input-group">
+            <label for="secret">TOTP Secret</label>
+            <input type="text" id="secret" placeholder="Enter your TOTP secret key" autocomplete="off">
+        </div>
+        <button id="submit">Generate TOTP</button>
+
+        <div class="result" id="result">
+            <div class="code-container">
+                <div class="code" id="totp-code">------</div>
+            </div>
+            <div class="timer">
+                <div class="timer-text" id="timer">Code expires in: <span id="countdown">30</span>s</div>
+                <button class="copy-button" id="copy-button">
+                    <svg class="copy-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                    <div class="copy-tooltip" id="copy-tooltip">Copied!</div>
+                </button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+
+        <div class="error-message" id="error">Invalid TOTP secret. Please check and try again.</div>
+
+        <div class="note">
+            We do not store your secret key.<br>
+            Made with ❤️ by akbarhabiby. Source on <a href="https://github.com/akbarhabiby/totp-generator" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+    </div>
+</body>
+</html>

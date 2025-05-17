@@ -1,0 +1,263 @@
+:root {
+  --bg-color: #282c34;
+  --container-bg: #2d323a;
+  --input-bg: #383e47;
+  --code-bg: #282c34;
+  --primary-color: #69b4ff;
+  --primary-hover: #50a0ff;
+  --text-color: #fff;
+  --muted-text: #a0a0a0;
+  --error-color: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.container {
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 380px;
+  margin: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 40px;
+    max-width: 480px;
+  }
+}
+
+a {
+  color: var(--text-color);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .input-group {
+    margin-bottom: 24px;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  background-color: var(--input-bg);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+@media (min-width: 768px) {
+  input[type="text"] {
+    padding: 14px 16px;
+  }
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 16px 20px;
+  }
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+.result {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: var(--input-bg);
+  border-radius: 6px;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .result {
+    padding: 20px;
+  }
+}
+
+.code-container {
+  background-color: var(--code-bg);
+  border-radius: 6px;
+  padding: 12px 8px;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .code-container {
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+}
+
+.code {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted-text);
+}
+
+@media (min-width: 768px) {
+  .timer {
+    margin-top: 16px;
+  }
+}
+
+.timer-text {
+  flex-grow: 1;
+}
+
+.copy-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s;
+  width: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .copy-button {
+    padding: 6px 12px;
+  }
+}
+
+.copy-button:hover {
+  color: var(--text-color);
+}
+
+.copy-tooltip {
+  position: absolute;
+  top: -32px;
+  right: 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary-color);
+  width: 100%;
+  transition: width 1s linear;
+}
+
+.error-message {
+  color: var(--error-color);
+  text-align: center;
+  margin-top: 12px;
+  display: none;
+  font-size: 14px;
+}
+
+.note {
+  margin-top: 24px;
+  color: var(--muted-text);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.copy-svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary-color);
+}
+
+@supports (-webkit-touch-callout: none) {
+  input,
+  button {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
