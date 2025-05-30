@@ -11,9 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const urlParams = new URLSearchParams(window.location.search);
   const secretParam = urlParams.get("secret");
+  const isEncoded = urlParams.get("encoded") === "true";
 
   if (secretParam) {
-    secretInput.value = secretParam;
+    // Check if encoded flag is set
+    if (isEncoded) {
+      try {
+        secretInput.value = atob(secretParam); // This will still pass if the value is not valid
+      } catch (error) {
+        secretInput.value = secretParam;
+      }
+    } else {
+      secretInput.value = secretParam;
+    }
 
     window.addEventListener("load", function () {
       setTimeout(function () {
