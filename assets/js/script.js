@@ -9,6 +9,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const copyButton = document.getElementById("copy-button");
   const copyTooltip = document.getElementById("copy-tooltip");
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const secretParam = urlParams.get("secret");
+
+  if (secretParam) {
+    secretInput.value = secretParam;
+
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        submitButton.click();
+      }, 100);
+    });
+  }
+
   let intervalId = null;
 
   // Focus on secret input when page loads (only on mobile)
