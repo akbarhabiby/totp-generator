@@ -98,6 +98,7 @@ totp-generator/
 │   ├── js/
 │   │   └── script.js   # Main JavaScript
 │   └── favicon.ico     # Favicon
+├── LICENSE             # GPLv3 License
 └── README.md           # This file
 ```
 
